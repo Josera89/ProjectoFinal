@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>---</title>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+    </head>
+    
+    <body>
+        
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="text" id="correo" placeholder="Correo electronico">
+        <input type="password" id="contrasena" placeholder="Contraseña">
+        <input type="password" id="cContrasena" placeholder="Confirmar contraseña">
+        <button type="submit" onclick="registrar()">Registrarme</button>
+        <p><a href="login.html">Iniciar Sesión</a></p>
+            
+    </body>
+    
+    <script>
+        
+        function registrar() {
+            var nombre = document.getElementById('nombre').value;
+            var correo = document.getElementById('correo').value;
+            var contrasena = document.getElementById('contrasena').value;
+            var cContrasena = document.getElementById('cContrasena').value;
+            
+            if(nombre != "" && correo != "" && contrasena != "" && cContrasena != "" ) {
+                if(contrasena === cContrasena) {
+                    
+                    localStorage.setItem('nombre', nombre);
+                    localStorage.setItem('correo', correo);
+                    localStorage.setItem('contrasena', contrasena);
+                    window.location.assign('login.html');
+                    
+                }else {
+                    alert("Las contraseñas no coinciden!");
+                }
+            }else {
+                alert("Por favor llena todos los campos!");
+            }
+        
+	}
+    </script>
+    
+</html>
