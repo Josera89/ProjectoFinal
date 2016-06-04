@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>---</title> 
+        <meta charset="utf-8">
+        <meta name="viewpoint" content="width=device-width,user-scalable=no">
+    </head>
+    
+    <body>
+        
+        <h2>Correo Electrónico</h2>
+        <input type="text" id="correo" placeholder="Ingresa tu correo">
+        <h2>Contraseña</h2>
+        <input type="text" id="contrasena" placeholder="Contraseña">
+        
+        <button onclick="iniciar()">Iniciar Sesión</button>
+        <p>No tienes una cuenta? <a href="registro.html">Registrate!</a></p>
+        
+    </body>
+    
+    <script>
+        
+        function iniciar() {
+            var correo = document.getElementById('correo').value;
+            var contrasena = document.getElementById('contrasena').value;
+            var correo2 = localStorage.getItem('correo');
+            var contrasena2 = localStorage.getItem('contrasena');
+            
+            if(correo != "" && contrasena != "") {
+                if(correo === correo2 && contrasena === contrasena2) {
+                    window.location.assign('main.html');
+                }else {
+                    alert("El correo electronico o la contraseña que ingresaste son incorrectos.");
+                }
+                
+            }else {
+                alert("Por favor llena todos los campos!");
+            }
+        }
+        
+    </script>
+    
+</html>
