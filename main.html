@@ -3,6 +3,8 @@
         <title>---</title> 
         <meta charset="utf-8">
         <meta name="viewpoint" content="width=device-width,user-scalable=no">
+        <link href="estilo2.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     </head>
     
     <body>
@@ -13,6 +15,7 @@
         
         <button onclick="actualizarPosicion()">Actualizar Posición</button>
         
+        <div>
         <input type="text" id="nombre" placeholder="Nombre Del Lugar">
         <input type="text" id="precio" placeholder="Precio De Lo Que Consumiste">
         <select id="categoria">
@@ -21,10 +24,11 @@
             <option value="bar">Bar</option>
             <option value="antro">Antro</option>
         </select>
+        <br>    
         <label>Calificación</label>
         <input type="range" min="1" max="5" value="5" id="calificacion" onchange="actualizarTexto()"/>
         <span id="valor"></span>
-        
+        </div>
         <button onclick="guardar()">Guardar Lugar!</button>
                 
     </body>
