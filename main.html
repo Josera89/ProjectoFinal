@@ -3,8 +3,6 @@
         <title>---</title> 
         <meta charset="utf-8">
         <meta name="viewpoint" content="width=device-width,user-scalable=no">
-        <link href="estilo2.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     </head>
     
     <body>
@@ -13,9 +11,8 @@
             <img id="mapa-img">
         </div>
         
-        <button onclick="actualizarPosicion()">Actualizar Posición</button>
+        <button onclick="obtenerPosicion()">Actualizar Ubicación</button>
         
-        <div>
         <input type="text" id="nombre" placeholder="Nombre Del Lugar">
         <input type="text" id="precio" placeholder="Precio De Lo Que Consumiste">
         <select id="categoria">
@@ -24,11 +21,10 @@
             <option value="bar">Bar</option>
             <option value="antro">Antro</option>
         </select>
-        <br>    
         <label>Calificación</label>
         <input type="range" min="1" max="5" value="5" id="calificacion" onchange="actualizarTexto()"/>
         <span id="valor"></span>
-        </div>
+        
         <button onclick="guardar()">Guardar Lugar!</button>
                 
     </body>
@@ -42,22 +38,23 @@
             actualizarTexto();
             
             // Obtener la posicion actual
+            obtenerPosicion();
+        }
+        
+        function obtenerPosicion() {
             navigator.geolocation.getCurrentPosition(actualizarPosicion);
         }
         
         function actualizarPosicion(posicion) {
-            localStorage.setItem('long',posicion.coords.longitude);
-            localStorage.setItem('lat', posicion.coords.latitude);   
-            dibujarMapa();
+            var latlong = posicion.coords.latitude + "," + posicion.coords.longitude;
+            localStorage.setItem('latlong',latlong);
+            dibujarMapa(latlong);
         }
         
-        function dibujarMapa() {
+        function dibujarMapa(latlong) {
             mapa = document.getElementById('mapa-img');
-            lat = localStorage.getItem('lat');
-            long = localStorage.getItem('long');
-
-            mapa.src = "http://maps.googleapis.com/maps/api/staticmap?center="+ lat + "," + long + 
-                "&zoom=17&size=500x500&markers=color:red%7Clabel:YO!%7C" + lat + ',' + long;
+            mapa.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlong + 
+                "&zoom=17&size=500x500&markers=color:red%7Clabel:YO!%7C" + latlong;
         }
         
         // Actualiza el texto del slider 'calificacion'
@@ -70,10 +67,11 @@
             var precio = document.getElementById('precio').value;
             var categoria = document.getElementById('categoria').value;
             var calificacion = document.getElementById('calificacion').value;
+            var latlong = localStorage.getItem('latlong');
             
             if(localStorage.getItem('contador')) {
-                contador = localStorage.getItem('contador')
-            }else { contador = 1;}
+                var contador = localStorage.getItem('contador');
+            }else { var contador = 1;}
             
             if(nombre != "" && precio != "" && categoria != "") {
                 
@@ -81,8 +79,7 @@
                 localStorage.setItem('precio'+contador, precio);
                 localStorage.setItem('categoria'+contador, categoria);
                 localStorage.setItem('calificacion'+contador, calificacion);
-                localStorage.setItem('lat'+contador, lat);
-                localStorage.setItem('long'+contador, long);
+                localStorage.setItem('latlong'+contador, latlong);
                 
                 contador++;
                 localStorage.setItem('contador', contador);
