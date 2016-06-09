@@ -1,0 +1,38 @@
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: black;
+    font-size: 16px;
+    background: black;
+    background-image: url("city.jpg");
+    background-repeat:repeat;
+    background-position:center;
+}
+
+div {
+    position: inherit;
+    text-align: left;
+}
+
+div.lugar {
+    background: rgba(255,255,255,.35); 
+}
+
+h1 {
+    margin-left: 40%;
+    margin-top: -5%;
+    font-size: 30px;
+    color: white;
+}
+
+
+lugar>p {
+    float:left;
+    color: gray;
+    padding: 5px;
+}
+
+
+
+
+
+

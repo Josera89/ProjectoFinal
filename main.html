@@ -1,13 +1,19 @@
 <html>
     <head>
-        <title>---</title> 
+        <title>BARIMETRO</title> 
         <meta charset="utf-8">
         <meta name="viewpoint" content="width=device-width,user-scalable=no">
         <link href="estilo2.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Rubik:400,700italic' rel='stylesheet' type='text/css'>
+    
     </head>
     
     <body>
+        
+        <div class="favoritos">
+            <a href="lugares.html"><img src="bookmark1.svg"></a>
+        </div>
         
         <div class="mapa">
             <img id="mapa-img">
@@ -19,16 +25,18 @@
         <input type="text" id="precio" placeholder="Precio De Lo Que Consumiste">
         <select id="categoria">
             <option disabled selected value>Categoría</option>
-            <option value="retaurante">Restaurante</option>
-            <option value="bar">Bar</option>
-            <option value="antro">Antro</option>
+            <option value="Restaurante">Restaurante</option>
+            <option value="Bar">Bar</option>
+            <option value="Antro">Antro</option>
         </select>
         <label>Calificación</label>
         <input type="range" min="1" max="5" value="5" id="calificacion" onchange="actualizarTexto()"/>
         <span id="valor"></span>
         
-        <button onclick="guardar()">Guardar Lugar!</button>
-                
+        <div class="guardar">
+            <img src="star.svg" onclick="guardar()">
+        </div> 
+            
     </body>
     
     <script>
