@@ -1,18 +1,17 @@
 <html>
     <header>
-        <title>BARIMETRO</title> 
+        <title>---</title> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
-         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href="estilo3.css" rel="stylesheet" type="text/css">
-        
     </header>
     
     <body>
         
         <nav>
             <div class="atras">
-                <a href="main.html"><img src="back.svg" width="50px"></a>
+                <a href="main.html"><img src="back.png" class="atras-img"></a>
             </div>            
             <h1>LUGARES</h1>
         </nav>        
@@ -43,7 +42,7 @@
                     var mapa = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlong +  "&zoom=15&size=250x250&markers=color:red%7Clabel:YO!%7C" + latlong;
                     
                     contenedorLugares = document.getElementById('contenedor-lugares');
-                    contenedorLugares.innerHTML += "<div class='lugar'><div class='mapa'><img src='" +mapa+ "' class='mapa-img'></div><p>" +categoria+ "</p><p>" +nombre+ "</p><p>" +precio+ "</p></div>";
+                    contenedorLugares.innerHTML += "<div class='lugar'><div class='mapa'><img src='" +mapa+ "' class='mapa-img'></div><div class='info-lugar'><p>" +categoria+ "</p><p>" +nombre+ "</p><p>" +precio+ "</p></div></div>";
                     
                     i++;
                 }

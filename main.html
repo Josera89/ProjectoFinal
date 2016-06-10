@@ -1,45 +1,51 @@
 <html>
     <head>
-        <title>BARIMETRO</title> 
+        <title>---</title> 
         <meta charset="utf-8">
-        <meta name="viewpoint" content="width=device-width,user-scalable=no">
+        <meta name="viewport" content="width=device-width,user-scalable=no">
         <link href="estilo2.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Rubik:400,700italic' rel='stylesheet' type='text/css'>
-        <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
-        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet' type='text/css'>
     
     </head>
     
     <body>
         
-        <div class="favoritos">
-            <a href="lugares.html"><img src="bookmark1.svg"></a>
+        <nav>            
+            <h1>BARIMETRO-TRO-TRO</h1>
+            <div class="favoritos">
+                <a href="lugares.html"><img src="bookmark1.svg" class="favoritos-img"></a>
+            </div>
+        </nav>   
+        
+        <div class="contenedor">
+            
+            <div class="mapa">
+                <img id="mapa-img">
+            </div>
+
+            <div class="contenedorBtn">
+                <button class="btnActualizar" onclick="obtenerPosicion()">Actualizar Ubicación</button>
+
+                <input type="text" id="nombre" placeholder="Nombre Del Lugar"><br>
+                <input type="text" id="precio" placeholder="Precio De Lo Que Consumiste"><br>
+                <select id="categoria"><br>
+                    <option disabled selected value>Categoría</option>
+                    <option value="Restaurante">Restaurante</option>
+                    <option value="Bar">Bar</option>
+                    <option value="Antro">Antro</option>
+                </select><br>
+                <label>Calificación</label><br>
+                <input type="range" min="1" max="5" value="5" id="calificacion" onchange="actualizarTexto()"/>
+                <span id="valor"></span>
+
+                <div class="guardar">
+                    <img src="star.svg" onclick="guardar()">
+                </div> 
+            </div>
+            
         </div>
         
-        <div class="mapa">
-            <img id="mapa-img">
-        </div>
-        
-        <button onclick="obtenerPosicion()">Actualizar Ubicación</button>
-        
-        <input type="text" id="nombre" placeholder="Nombre Del Lugar">
-        <input type="text" id="precio" placeholder="Precio De Lo Que Consumiste">
-        <select id="categoria">
-            <option disabled selected value>Categoría</option>
-            <option value="Restaurante">Restaurante</option>
-            <option value="Bar">Bar</option>
-            <option value="Antro">Antro</option>
-        </select>
-        <label>Calificación</label>
-        <input type="range" min="1" max="5" value="5" id="calificacion" onchange="actualizarTexto()"/>
-        <span id="valor"></span>
-        
-        <div class="guardar">
-            <img src="star.svg" onclick="guardar()">
-        </div> 
             
     </body>
     
